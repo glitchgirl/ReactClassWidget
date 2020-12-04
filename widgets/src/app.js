@@ -1,5 +1,16 @@
 import React from "react";
+import Accordion from "./components/Accordion";
+
+const items = [
+  { title: "what it do", content: "it do js stuff" },
+  { title: "why", content: "cause" },
+  { title: "how do", content: "components" }
+];
 
 export default () => {
-  return <h1>hewwo</h1>;
+  return (
+    <div>
+      <Accordion items={items} />
+    </div>
+  );
 };
