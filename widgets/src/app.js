@@ -1,5 +1,5 @@
 import React from "react";
-import Accordion from "./components/Accordion";
+import Search from "./components/Search";
 
 const items = [
   { title: "what it do", content: "it do js stuff" },
@@ -8,9 +8,5 @@ const items = [
 ];
 
 export default () => {
-  return (
-    <div>
-      <Accordion items={items} />
-    </div>
-  );
+  return <div></div>;
 };
