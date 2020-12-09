@@ -15,15 +15,19 @@ const Search = () => {
         }
       });
     };
-    const timeoutID = setTimeout(() => {
-      if (term) {
-        search();
-      }
-    }, 500);
-    return () => {
-      clearTimeout(timeoutID);
-    };
-    setResults(data.query.search);
+    if (term && !results.length) {
+      search();
+    } else {
+      const timeoutID = setTimeout(() => {
+        if (term) {
+          search();
+        }
+      }, 500);
+      return () => {
+        clearTimeout(timeoutID);
+      };
+      setResults(data.query.search);
+    }
   }, [term]);
 
   const renderedResults = results.map(result => {
