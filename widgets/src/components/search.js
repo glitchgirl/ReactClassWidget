@@ -20,7 +20,9 @@ const Search = () => {
         search();
       }
     }, 500);
-
+    return () => {
+      clearTimeout(timeoutID);
+    };
     setResults(data.query.search);
   }, [term]);
 
