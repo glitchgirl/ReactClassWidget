@@ -2,6 +2,19 @@ import React from "react";
 
 const Dropdown = ({ options }) => {
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    document.body.addEventListener("click", event => {
+      if (ref.current && ref.current.contains(event.target)) {
+        return;
+      }
+      setOpen(false);
+    });
+    document.body.addEventListener("click", onBodyClick);
+
+    return () => {
+      document.body.removeEventListener("click", onBodyClick);
+    };
+  }, []);
   const redenderOptions = options.map(option => {
     if (option.value === selected.value) {
       return null;
